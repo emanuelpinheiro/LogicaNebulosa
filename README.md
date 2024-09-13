@@ -15,6 +15,7 @@ Caso apareça que não existe algum ambiente virtual, execute esse código e ten
 python -m venv venv
 
 Depois instale as dependências (um comando de cada vez): 
+
 pip install numpy
 
 pip install scikit-fuzzy
