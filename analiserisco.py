@@ -25,3 +25,15 @@ renda_mensal['alta'] = fuzz.trimf(renda_mensal.universe, [6, 10, 10])
 divida_atual['baixa'] = fuzz.trimf(divida_atual.universe, [0, 0, 4])
 divida_atual['moderada'] = fuzz.trimf(divida_atual.universe, [3, 5, 7])
 divida_atual['alta'] = fuzz.trimf(divida_atual.universe, [6, 10, 10])
+
+# Funções de pertinência para risco
+risco['baixo'] = fuzz.trimf(risco.universe, [0, 0, 4])
+risco['medio'] = fuzz.trimf(risco.universe, [3, 5, 7])
+risco['alto'] = fuzz.trimf(risco.universe, [6, 10, 10])
+
+# Definindo as regras fuzzy
+regra1 = ctrl.Rule(hist_credito['excelente'] & divida_atual['baixa'], risco['baixo'])
+regra2 = ctrl.Rule(hist_credito['ruim'] & divida_atual['alta'], risco['alto'])
+regra3 = ctrl.Rule(hist_credito['bom'] & renda_mensal['media'] & divida_atual['moderada'], risco['medio'])
+regra4 = ctrl.Rule(hist_credito['regular'] & divida_atual['moderada'], risco['medio'])
+regra5 = ctrl.Rule(hist_credito['regular'] & divida_atual['alta'], risco['alto'])
