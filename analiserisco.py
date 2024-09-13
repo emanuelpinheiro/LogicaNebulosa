@@ -37,3 +37,12 @@ regra2 = ctrl.Rule(hist_credito['ruim'] & divida_atual['alta'], risco['alto'])
 regra3 = ctrl.Rule(hist_credito['bom'] & renda_mensal['media'] & divida_atual['moderada'], risco['medio'])
 regra4 = ctrl.Rule(hist_credito['regular'] & divida_atual['moderada'], risco['medio'])
 regra5 = ctrl.Rule(hist_credito['regular'] & divida_atual['alta'], risco['alto'])
+
+# Criando o sistema de controle
+controle_risco = ctrl.ControlSystem([regra1, regra2, regra3, regra4, regra5])
+simulacao_risco = ctrl.ControlSystemSimulation(controle_risco)
+
+# Teste do sistema
+simulacao_risco.input['hist_credito'] = 6.5  # Bom
+simulacao_risco.input['renda_mensal'] = 5  # Média
+simulacao_risco.input['divida_atual'] = 3  # Baixa
