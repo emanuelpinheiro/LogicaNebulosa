@@ -46,3 +46,9 @@ simulacao_risco = ctrl.ControlSystemSimulation(controle_risco)
 simulacao_risco.input['hist_credito'] = 6.5  # Bom
 simulacao_risco.input['renda_mensal'] = 5  # Média
 simulacao_risco.input['divida_atual'] = 3  # Baixa
+
+# Computando o resultado
+simulacao_risco.compute()
+
+# Exibindo o resultado
+print(f"Risco calculado: {simulacao_risco.output['risco']:.2f}")
