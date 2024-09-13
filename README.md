@@ -18,7 +18,14 @@ Depois instale as dependências (um comando de cada vez):
 
 pip install numpy
 
+pip install scipy
+
 pip install scikit-fuzzy
+
+pip install packaging
+
+pip install networkx 
+
 
 E finalmente execute a aplicação:
 python analiserisco.py
