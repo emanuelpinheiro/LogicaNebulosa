@@ -16,6 +16,7 @@ python -m venv venv
 
 Depois instale as dependências (um comando de cada vez): 
 pip install numpy
+
 pip install scikit-fuzzy
 
 E finalmente execute a aplicação:
